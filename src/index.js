@@ -1,7 +1,22 @@
 import './styles.css';
 import logo from './img/logo.png';
 
-import { getPokemon } from './pokeAPI';
+import { getRandomPokemon } from './pokeAPI';
+
+let randomPokemonName;
+
+function checkGuess(guess) {
+
+    console.log(randomPokemonName);
+
+    if (guess === randomPokemonName) {
+        console.log("Correct!");
+        return true;
+    }
+
+    console.log("Incorrect!");
+    return false;
+}
 
 // Get container
 const container = document.querySelector("#container")
@@ -24,13 +39,15 @@ pokemonSprite.classList.add("hidden");
 
 container.append(pokemonSprite);
 
-
-const pokemon = getPokemon("squirtle");
+const pokemon = getRandomPokemon();
 
 pokemon.then(function(response) {
 
     if (response) {
-        pokemonSprite.src = response.sprites.front_shiny;
+        pokemonSprite.src = response.sprites.front_default;
+
+        randomPokemonName = response.name;
+
     }
 });
 
@@ -41,9 +58,47 @@ guessBox.classList.add("guess-box");
 
 container.append(guessBox);
 
-// Submit guess button
-// const submitGuessButton = document.createElement("button");
-// submitGuessButton.classList.add("submit-guess");
-// submitGuessButton.textContent = "Submit";
+// Game
 
-// container.append(submitGuessButton);
+function revealPokemon() {
+    pokemonSprite.classList.remove("hidden");
+}
+
+function updateGuessBox(guess) {
+    guessBox.value = guess;
+}
+
+function game(guess) {
+    if (checkGuess(guess)) {
+        revealPokemon();
+    }
+}
+
+// Keyboard
+const keyboard = document.querySelector(".keyboard");
+keyboard.addEventListener("click", handleMouseClick);
+
+function handleMouseClick(e) {
+    if (e.target.matches("[data-key]")) {
+        pressKey(e.target.dataset.key);
+        return;
+    }
+
+    if (e.target.matches("[data-enter]")) {
+        //submit guess
+        game(guessBox.value);
+    }
+
+    if (e.target.matches("[data-delete]")) {
+        // backspace
+        deleteChar(guessBox.value);
+    }
+}
+
+function pressKey(key) {
+    guessBox.value += key;
+}
+
+function deleteChar(string) {
+    updateGuessBox(string.substring(0, string.length-1));
+}
