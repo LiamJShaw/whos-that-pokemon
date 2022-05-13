@@ -38,16 +38,12 @@ pokemon.then(function(response) {
 const guessBox = document.createElement("input");
 guessBox.type = "text";
 guessBox.classList.add("guess-box");
-guessBox.placeholder = "Type your guess here"
 
 container.append(guessBox);
 
-guessBox.focus();
-
 // Submit guess button
-const submitGuessButton = document.createElement("button");
-submitGuessButton.classList.add("submit-guess");
-submitGuessButton.textContent = "Submit";
+// const submitGuessButton = document.createElement("button");
+// submitGuessButton.classList.add("submit-guess");
+// submitGuessButton.textContent = "Submit";
 
-
-container.append(submitGuessButton);
+// container.append(submitGuessButton);
