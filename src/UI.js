@@ -44,8 +44,6 @@ export const increasePokemonSize = (turn) => {
 
     const pokemonSprite = document.querySelector(".pokemon-image");
 
-    console.log("Turn: " + turn);
-
     switch(turn) {
 
         case 1:
@@ -53,11 +51,15 @@ export const increasePokemonSize = (turn) => {
             break;
 
         case 2:
-            pokemonSprite.style.width = "40%";
+            pokemonSprite.style.width = "30%";
             break;
 
         case 3:
-            pokemonSprite.style.width = "60%";
+            pokemonSprite.style.width = "50%";
+            break;
+
+        case 4:
+            pokemonSprite.style.width = "70%";
             break;
 
         default:

@@ -26,7 +26,7 @@ export const checkGuess = (guess) => {
     if (guess === currentPokemonName) {
         return true;
     }
-    
+
     return false;
 }
 
