@@ -65,7 +65,7 @@ body {
 }
 
 .hidden {
-    filter: brightness(0) blur(8px);
+    filter: brightness(0) blur(3px);
 }
 
 .guess-box {

@@ -51,7 +51,7 @@ export const increasePokemonSize = (turn) => {
             break;
 
         case 2:
-            pokemonSprite.style.width = "30%";
+            pokemonSprite.style.width = "35%";
             break;
 
         case 3:
