@@ -7,7 +7,7 @@ export async function getPokemon(pokemon) {
 export const getRandomPokemon = () => {
 
     // Gen 1 only for now
-    const randomID = Math.floor(Math.random() * 251);
+    const randomID = Math.floor(Math.random() * 386);
 
     return getPokemon(randomID);
 }
