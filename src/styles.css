@@ -1,9 +1,16 @@
+@font-face {
+    font-family: 'Pokemon';
+  
+    src: url('/src/fonts/Pokemon\ Classic\ Regular.woff') format('woff'),
+         url('/src/fonts/Pokemon\ Classic\ Regular.woff') format('woff2');
+  }
+  
+  
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
-    /* font-family: 'Courier New', Courier, monospace; */
 
     overflow: hidden;
 }
@@ -45,6 +52,7 @@ body {
 .title {
     text-align: center;
     width: 100%;
+    max-height: 20%;
     object-fit: contain;
 }
 
@@ -54,9 +62,6 @@ body {
     max-width: 100%;
 
     width: 100%;
-
-    
-
 }
 
 .hidden {
@@ -64,14 +69,15 @@ body {
 }
 
 .guess-box {
+    user-select: none;
+    pointer-events: none; 
+
+    font-family: 'Pokemon';
 
     margin: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 1rem 2rem;
 
     border: none;
-    /* border-bottom: 5px solid #3564AD;
-    border-radius: 10px;
-    */
 
     background-color: #3563ad;
     
@@ -109,6 +115,8 @@ body {
     justify-content: center;
 
     width: 100%;
+
+    user-select: none;
 }
 
 .key:hover {
@@ -118,8 +126,10 @@ body {
 .key:focus {
     outline: 0;
     box-shadow: none;
+
+    /* Stops mobile being weird, but causes quirks on desktop */
+    opacity: 1;
   }
-  
 
 .key {
     font-size: inherit;
