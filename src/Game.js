@@ -1,7 +1,7 @@
 import { getRandomPokemon } from './pokeAPI';
 
-import { changeDisplayedPokemon, increasePokemonSize, 
-         revealPokemon, setGuessBoxValue } from './UI.js';
+import { changeDisplayedPokemon, increasePokemonSize, revealPokemon, 
+         setGuessBoxValue, enableKeyboard, disableKeyboard } from './UI.js';
 
 let currentPokemonName;
 
@@ -37,6 +37,8 @@ export const newGame = () => {
 
     // Generate new random pokemon
     generatePokemon();
+
+    enableKeyboard();
 }
 
 export const game = (guess) => {
@@ -49,6 +51,7 @@ export const game = (guess) => {
         if (checkGuess(guess)) {
             revealPokemon();
             increasePokemonSize();
+            disableKeyboard();
             return;
         }
 
@@ -59,6 +62,8 @@ export const game = (guess) => {
             
             // Change guessBox to be real value
             setGuessBoxValue(currentPokemonName);
+
+            disableKeyboard();
 
             return;
         }

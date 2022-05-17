@@ -84,7 +84,15 @@ export const setGuessBoxValue = (value) => {
 
 // Keyboard
 const keyboard = document.querySelector(".keyboard");
-keyboard.addEventListener("click", handleMouseClick);
+
+export const enableKeyboard = () => {
+    keyboard.addEventListener("click", handleMouseClick);
+}
+
+export const disableKeyboard = () => {
+    keyboard.removeEventListener("click", handleMouseClick);
+}
+
 
 function handleMouseClick(e) {
     if (e.target.matches("[data-key]")) {
