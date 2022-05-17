@@ -53,10 +53,12 @@ export const game = (guess) => {
             increasePokemonSize();
             disableKeyboard();
             return;
+        } else {
+            setGuessBoxValue("");
         }
 
         if (turnCounter == 5) {
-            // Show full size Pokemon
+            // Show full colour and full size Pokemon
             revealPokemon();
             increasePokemonSize();
             
@@ -69,10 +71,3 @@ export const game = (guess) => {
         }
     }
 }
-
-// Next turn
-    // Increase size of sprite
-    // increment turn counter
-
-
-// Stop taking user input

@@ -18,7 +18,7 @@ export const setupUI = () => {
     // Pokemon image
     const pokemonSprite = document.createElement("img");
     pokemonSprite.classList.add("pokemon-image");
-    pokemonSprite.style.width = "10%";
+    pokemonSprite.style.width = "20%";
 
     // Hide the sprite
     pokemonSprite.classList.add("hidden");
@@ -32,6 +32,32 @@ export const setupUI = () => {
     guessBox.classList.add("guess-box");
 
     container.append(guessBox);
+
+    // Turn indicator
+    const turnIndicatorContainer = document.createElement("div");
+    turnIndicatorContainer.classList.add("turn-indicator-container")
+
+    const turn1Indicator = document.createElement("div");
+    turn1Indicator.classList.add("turn-indicator");
+    turnIndicatorContainer.append(turn1Indicator);
+
+    const turn2Indicator = document.createElement("div");
+    turn2Indicator.classList.add("turn-indicator");
+    turnIndicatorContainer.append(turn2Indicator);
+
+    const turn3Indicator = document.createElement("div");
+    turn3Indicator.classList.add("turn-indicator");
+    turnIndicatorContainer.append(turn3Indicator);
+
+    const turn4Indicator = document.createElement("div");
+    turn4Indicator.classList.add("turn-indicator");
+    turnIndicatorContainer.append(turn4Indicator);
+
+    const turn5Indicator = document.createElement("div");
+    turn5Indicator.classList.add("turn-indicator");
+    turnIndicatorContainer.append(turn5Indicator);
+
+    // container.append(turnIndicatorContainer);
 }
 
 export const changeDisplayedPokemon = (src) => {
@@ -47,19 +73,19 @@ export const increasePokemonSize = (turn) => {
     switch(turn) {
 
         case 1:
-            pokemonSprite.style.width = "20%";
+            pokemonSprite.style.width = "30%";
             break;
 
         case 2:
-            pokemonSprite.style.width = "35%";
+            pokemonSprite.style.width = "40%";
             break;
 
         case 3:
-            pokemonSprite.style.width = "50%";
+            pokemonSprite.style.width = "60%";
             break;
 
         case 4:
-            pokemonSprite.style.width = "70%";
+            pokemonSprite.style.width = "80%";
             break;
 
         default:
@@ -80,6 +106,7 @@ function getGuessBox() {
 export const setGuessBoxValue = (value) => {
     getGuessBox().value = value;
 }
+
 
 
 // Keyboard
